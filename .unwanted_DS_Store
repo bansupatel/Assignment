@@ -138,3 +138,122 @@ hint: If you are sure you want to delete it, run 'git branch -D test-branch'
 hint: Disable this message with "git config advice.forceDeleteBranch false"
 
 3.4.1
+
+The git checkout -f trick works only with files that are staged for commit or are already part of the repository, but sometimes you want to get rid of new files as well. Using touch, create a file with a name of your choice, then git add it. Verify that running git checkout -f gets rid of it.
+2. Like many other Unix programs, git accepts both “short form” and “long form” options. Repeat the previous exercise with git checkout --force to confirm that the effects of -f and --force are identical. Extra credit: Double­check this conclusion by finding the “force” option in the output of git help checkout.
+
+
+
+Answer :
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ echo >> about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ vi about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ echo > about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ cat about.html
+
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   about.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git diff
+warning: in the working copy of 'about.html', LF will be replaced by CRLF the next time Git touches it
+diff --git a/about.html b/about.html
+index 6b1756e..8b13789 100644
+--- a/about.html
++++ b/about.html
+@@ -1,16 +1 @@
+-<!DOCTYPE html>
+-<html>
+-  <head>
+-    <title>About Us</title>
+-    <meta charset="utf-8">
+-</head>
+-  <body>
+-    <h1><strong>About Us</strong></h1>
+-    <p>
+-      This site is a sample project for the <strong>awesome</strong> Git
+-      tutorial <a href="https://www.learnenough.com/git-tutorial"><em>Learn Enough™ Git to Be Dangerous</em></a>.
+-    </p>
+-    <a href="https://www.flickr.com/photos/puliarfanita/22959238329">
+-      <img src="images/polar_bear.jpg" alt="Polar bear"> </a>
+-</body>
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git checkout -f
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git diff
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ cat about.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Us</title>
+    <meta charset="utf-8">
+</head>
+  <body>
+    <h1><strong>About Us</strong></h1>
+    <p>
+      This site is a sample project for the <strong>awesome</strong> Git
+      tutorial <a href="https://www.learnenough.com/git-tutorial"><em>Learn Enough™ Git to Be Dangerous</em></a>.
+    </p>
+    <a href="https://www.flickr.com/photos/puliarfanita/22959238329">
+      <img src="images/polar_bear.jpg" alt="Polar bear"> </a>
+</body>
+</html>
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git checkout -b test-branch
+fatal: a branch named 'test-branch' already exists
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ echo > about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git commit -am "Oops"
+warning: in the working copy of 'about.html', LF will be replaced by CRLF the next time Git touches it
+[main 84d990c] Oops
+ 1 file changed, 1 insertion(+), 16 deletions(-)
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git checkout main
+Already on 'main'
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git branch -D test-branch
+Deleted branch test-branch (was 971cbbe).
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git branch
+* main
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ cat about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ echo > about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git diff
+warning: in the working copy of 'about.html', LF will be replaced by CRLF the next time Git touches it
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git checkout --force
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ cat about.html
+
