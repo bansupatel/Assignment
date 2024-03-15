@@ -57,3 +57,84 @@ index 0000000..58ebae2
 +<title>A whale of a greeting</title>
 +</head>
 +<body>
+
+3.2.1
+
+1. Commit the .gitignore file to your repository. Hint: Running git commit -am isn’t enough. Why not?
+
+Answer : .gitignore commited to the repository.
+
+Only git commit -am is not enough, as there is m switch, we also mention the commit text with it.
+
+2. Push your commit up to GitHub and confirm using the web interface that the push succeeded.
+
+Answer : Push succeded.
+
+3.3.2
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git branch
+* main
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git branch test-branch
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git checkout test-branch
+Switched to branch 'test-branch'
+
+3. Check out test-branch and use touch to add a file with a name of your choice, then add and commit it to the repository.
+
+
+Answer : 
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git checkout test-branch
+Switched to branch 'test-branch'
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (test-branch)
+$ touch IAmLazy.txt
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (test-branch)
+$ git add -A
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (test-branch)
+$ git commit -am "Added my characteristics file.. I am lazy.."
+[test-branch 971cbbe] Added my characteristics file.. I am lazy..
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 IAmLazy.txt
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (test-branch)
+$ git push --force-with-lease origin-push
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 270 bytes | 270.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'test-branch' on GitHub by visiting:
+remote:      https://github.com/bansupatel/Assignment/pull/new/test-branch
+remote:
+To https://github.com/bansupatel/Assignment.git
+ * [new branch]      test-branch -> test-branch
+
+4. Check out the main branch and try deleting the test branch using git branch -d to confirm that it doesn’t work. The reason is that, in con­ trast to the about-page branch, the test branch hasn’t been merged into main, and by design -d doesn’t work in this case. Because we don’t actually want its changes, delete the test by using the related -D option, which deletes the branch in question even if its changes are unmerged.
+
+
+Answer :
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (test-branch)
+$ git checkout main
+Switched to branch 'main'
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git branch
+* main
+  test-branch
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git branch -d test-branch
+error: the branch 'test-branch' is not fully merged
+hint: If you are sure you want to delete it, run 'git branch -D test-branch'
+hint: Disable this message with "git config advice.forceDeleteBranch false"
+
+3.4.1
