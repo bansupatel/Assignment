@@ -1,0 +1,59 @@
+3.1.1
+
+1. Click on the image link at GitHub to verify that the git push succeeded.
+
+Answer : its succeded.
+
+2. At this point, the number of commits is large enough that the output of git log -p is probably too big to fit in your terminal window. Con­ firm that running git log -p drops you into a less interface for easier navigation.
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git log -p
+commit 6b2387e26ce43fa0ac96e9b439d9b1a667764509 (HEAD -> main, origin/main, origin-push/main)
+Author: Bansari Patel <bansaripatel25897@gmail.com>
+Date:   Fri Mar 15 14:01:09 2024 -0500
+
+    Add an image
+
+diff --git a/images/breaching_whale.jpg b/images/breaching_whale.jpg
+new file mode 100644
+index 0000000..a821434
+Binary files /dev/null and b/images/breaching_whale.jpg differ
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000..58ebae2
+--- /dev/null
++++ b/index.html
+@@ -0,0 +1,11 @@
++<!DOCTYPE html>
++<html>
++<head>
++<title>A whale of a greeting</title>
++</head>
++<body>
+
+3. Use your knowledge of less commands to search for the commit that added the HTML DOCTYPE. What is the SHA of the commit?
+
+ Answer : 
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assignment (main)
+$ git log -p
+commit 6b2387e26ce43fa0ac96e9b439d9b1a667764509 (HEAD -> main, origin/main, origin-push/main)
+Author: Bansari Patel <bansaripatel25897@gmail.com>
+Date:   Fri Mar 15 14:01:09 2024 -0500
+
+     Added DOCTYPE
+
+diff --git a/images/breaching_whale.jpg b/images/breaching_whale.jpg
+new file mode 100644
+index 0000000..a821434
+Binary files /dev/null and b/images/breaching_whale.jpg differ
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000..58ebae2
+--- /dev/null
++++ b/index.html
+@@ -0,0 +1,11 @@
++<!DOCTYPE html>
++<html>
++<head>
++<title>A whale of a greeting</title>
++</head>
++<body>
